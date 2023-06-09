@@ -1,0 +1,113 @@
+.container{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+.harry{
+    height: 90%;
+    position: absolute;
+    bottom:  0;
+    right: 0;
+    z-index: -1;
+}
+.inner-container{
+    position: absolute;
+    top:25%;
+    width:100vw;
+    height:300px;
+    display: flex;
+
+}
+.form-container{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+}
+form h2{
+    text-decoration: line-through;
+}
+form {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px white,0px 0px 5px white inset;
+    padding:2em;
+}
+input{
+    width:100%;
+    height:2em;
+    margin-bottom: 5px;
+    outline: none;
+    border:none;
+    color:aliceblue;
+    border-bottom: 1px solid white;
+    background-color: transparent; 
+}
+
+.forgot{
+    margin: 5px;
+    float: right;
+}
+.forgot a{
+    font-size: 1em;
+}
+.forgot a:hover{
+    font-size: 1em;
+}
+.button-container{
+    width: 100%;
+    margin-top:1em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    height:2em;
+    width:10em;
+    color:white;
+    background-color: rgba(0,0,0,0.6);
+    border:1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    box-shadow: 2px 2px 15px white,0px 0px 5px white inset;
+}
+.register{
+    font-size: 12px;
+}
+.register a:hover{
+    font-size: 12px;
+    
+}
+
+.quote-container{
+    flex:1;
+    position: relative;
+}
+.quote-container .quote{
+
+    position: absolute;
+    top:25%;
+    width:50%;
+    padding:20px;
+}
+.quote-container .quote p{
+    color: black;
+    text-shadow: 0px 0px 5px white;
+    line-height: 2em;
+    letter-spacing: 1px;
+    font-size:20px;
+}
+
+
+@media(max-width:650px){
+    .inner-container {
+        flex-direction: column;
+    }
+    .quote-container{
+        display: none;
+    }
+}
