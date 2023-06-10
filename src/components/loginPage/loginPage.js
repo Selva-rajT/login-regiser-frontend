@@ -1,28 +1,71 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import './loginPage.css';
 import Navbar from '../navBar/navBar';
 import { Link } from 'react-router-dom';
+import {userLogin} from '../../services/loginService';
 import harry from '../../assets/harry.png';
 
+
 const LoginPage = () => {
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    const [loading,setLoading]=useState(false);
+    const [valid,setValid]=useState(false);
+
+    const handleSubmit=async(event)=>{
+        event.preventDefault();
+        if(email&&password){
+            setLoading(true);
+        userLogin(email,password)
+            .then((res)=>{
+                 setTimeout(()=>{
+                    setLoading(false)
+                    console.log(res.data)
+                    setEmail('')
+                    setPassword('')
+                },2000);     
+            })
+            .catch(err=>{
+                console.log(err.message);
+                setLoading(false);
+                setEmail('');
+                setPassword('');
+                setValid(true);
+            })
+        }
+    }
+
+    const clearForm=(event)=>{
+        event.preventDefault();
+        setEmail('');
+        setPassword('');
+        
+    }
   return (
     <div className='container'>
         <Navbar />
         <img src={harry} alt='harry' className='harry'></img>
        <div className='inner-container'>
             <div className='form-container'>
-                
-                <form>
+                <form >
                     <h2>Log In</h2>
-                    <label htmlFor='email'>Email :</label>
-                    <input type='email' name="email" required ></input><br/>
-                    <label htmlFor='password'>Password :</label>
-                    <input type='password' name='password' required></input><br/>
-                    <p className='forgot'><Link to='/forgot'>forgot password ?</Link></p><br/>
-                    <div className='button-container'>
-                        <button >Submit</button>
-                        <button >Clear</button>
-                    </div>
+                    {valid?
+                    <div className='valid'>
+                        <h3 >User Not Found !..<span>Please Register..</span></h3>
+                    </div>:null}
+                    {loading?<div className="loader1"></div>:null}
+                    {!valid?<span>
+                        <label htmlFor='email'>Email :</label>
+                        <input type='email' name="email" required onChange={(e)=>setEmail(e.target.value)} value={email}></input><br/>
+                        <label htmlFor='password'>Password :</label>
+                        <input type='password' name='password' required onChange={(e)=>setPassword(e.target.value)} value={password}></input><br/>
+                        <p className='forgot'><Link to='/forgot'>forgot password ?</Link></p><br/>
+                        <div className='button-container'>
+                            <button onClick={handleSubmit} disabled={loading} >Submit</button>
+                            <button onClick={clearForm}>Clear</button>
+                        </div>
+                        </span>:null}
+                    
                     <p className='register'>Didn't have account? <Link to='/register'>Register here.</Link> </p>
                 </form>
             </div>

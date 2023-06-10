@@ -7,13 +7,14 @@ import './navBar.css';
 const Navbar = () => {
   return (
     <div className='container1'>
-            <div class='left'>
+            <div className='left'>
                 <img src={logo} alt='logo'></img>
                 <h2>HOGWARDS</h2>
             </div>
             <div className='right'>
                 <ul>
-                    <li><Link to='/'>Register</Link></li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/register'>Register</Link></li>
                     <li><Link to='/gallery'>Gallery</Link></li>
                 </ul>
             </div>
