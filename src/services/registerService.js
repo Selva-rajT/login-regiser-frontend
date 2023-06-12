@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL='http://172.16.0.14:5000/user';
+axios.defaults.baseURL='http://172.16.0.51:5000/user';
 
 const registerUrl='/';
 

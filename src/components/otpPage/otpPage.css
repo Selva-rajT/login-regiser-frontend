@@ -1,0 +1,12 @@
+.email_container{
+    display: flex;
+    margin-bottom: 1em;
+}
+.email_container button{
+    width:100px;
+    margin-left: 30px;
+}
+.h2{
+    margin-bottom: 1.5em;
+}
+

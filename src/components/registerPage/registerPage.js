@@ -13,7 +13,12 @@ const Registerpage= () => {
         password:'',
         rpassword:''
     })
-    const initialState=details;
+    const initialState={
+        username:'',
+        email:'',
+        password:'',
+        rpassword:''
+    };
 
     const setValues = (e) => {
         const { name, value } = e.target;
@@ -35,6 +40,7 @@ const Registerpage= () => {
                     navigate('/login');  
                 })
                 .catch(err=>{
+                    console.log(err.message);
                     setDetails(initialState);
                     setLoading(false);
                 })
