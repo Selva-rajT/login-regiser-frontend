@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&display=swap');
 .email_container{
     display: flex;
     margin-bottom: 1em;
@@ -10,3 +11,14 @@
     margin-bottom: 1.5em;
 }
 
+.error{
+    margin-bottom: 10px;
+    font-family: 'Diphylleia';
+    color:aqua;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px white;
+}
+.resend{
+    margin-top: 10px;
+}
